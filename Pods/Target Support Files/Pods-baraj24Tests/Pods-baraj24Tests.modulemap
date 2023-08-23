@@ -1,0 +1,6 @@
+framework module Pods_baraj24Tests {
+  umbrella header "Pods-baraj24Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

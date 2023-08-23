@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1786070F806D568F5E7DD185 /* Pods_baraj24Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */; };
+		1D5323142A94A58A00EA8114 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = 1D5323132A94A58A00EA8114 /* Helpers */; };
 		1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41BF2A81108800055D87 /* AppDelegate.swift */; };
 		1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41C12A81108800055D87 /* SceneDelegate.swift */; };
 		1D6F41C42A81108800055D87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41C32A81108800055D87 /* ViewController.swift */; };
@@ -18,6 +20,10 @@
 		1D6F41E42A81108900055D87 /* baraj24UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41E32A81108900055D87 /* baraj24UITests.swift */; };
 		1D6F41E62A81108900055D87 /* baraj24UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */; };
 		1D6F41F32A81121A00055D87 /* pickCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41F22A81121900055D87 /* pickCityVC.swift */; };
+		1D781DF82A92A6EF00912EF4 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */; };
+		1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */; };
+		448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */; };
+		EE44814477097F09840EB3C4 /* Pods_baraj24_baraj24UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D5323132A94A58A00EA8114 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		1D6F41BC2A81108800055D87 /* baraj24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baraj24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F41BF2A81108800055D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D6F41C12A81108800055D87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +60,17 @@
 		1D6F41E32A81108900055D87 /* baraj24UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITests.swift; sourceTree = "<group>"; };
 		1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D6F41F22A81121900055D87 /* pickCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickCityVC.swift; sourceTree = "<group>"; };
+		1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24_baraj24UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24Tests.release.xcconfig"; path = "Target Support Files/Pods-baraj24Tests/Pods-baraj24Tests.release.xcconfig"; sourceTree = "<group>"; };
+		86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24-baraj24UITests.debug.xcconfig"; path = "Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE624747D2A273E93E5D863F /* Pods-baraj24.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24.release.xcconfig"; path = "Target Support Files/Pods-baraj24/Pods-baraj24.release.xcconfig"; sourceTree = "<group>"; };
+		B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCCF8EAAC062659231B14B05 /* Pods-baraj24-baraj24UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24-baraj24UITests.release.xcconfig"; path = "Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests.release.xcconfig"; sourceTree = "<group>"; };
+		CE28B7F575FF375DD585B559 /* Pods-baraj24.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24.debug.xcconfig"; path = "Target Support Files/Pods-baraj24/Pods-baraj24.debug.xcconfig"; sourceTree = "<group>"; };
+		D3A6D212E292B841469918D6 /* Pods-baraj24Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24Tests.debug.xcconfig"; path = "Target Support Files/Pods-baraj24Tests/Pods-baraj24Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786070F806D568F5E7DD185 /* Pods_baraj24Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE44814477097F09840EB3C4 /* Pods_baraj24_baraj24UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +108,8 @@
 				1D6F41D82A81108900055D87 /* baraj24Tests */,
 				1D6F41E22A81108900055D87 /* baraj24UITests */,
 				1D6F41BD2A81108800055D87 /* Products */,
+				C9912C5E5F47BDF8F73B5558 /* Pods */,
+				E74A08AB252E71B3762753A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +126,13 @@
 		1D6F41BE2A81108800055D87 /* baraj24 */ = {
 			isa = PBXGroup;
 			children = (
+				1D5323132A94A58A00EA8114 /* Helpers */,
 				1D6F41BF2A81108800055D87 /* AppDelegate.swift */,
 				1D6F41C12A81108800055D87 /* SceneDelegate.swift */,
 				1D6F41C32A81108800055D87 /* ViewController.swift */,
 				1D6F41C52A81108800055D87 /* Main.storyboard */,
+				1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */,
+				1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */,
 				1D6F41F22A81121900055D87 /* pickCityVC.swift */,
 				1D6F41CB2A81108900055D87 /* Assets.xcassets */,
 				1D6F41CD2A81108900055D87 /* LaunchScreen.storyboard */,
@@ -133,6 +159,29 @@
 			path = baraj24UITests;
 			sourceTree = "<group>";
 		};
+		C9912C5E5F47BDF8F73B5558 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE28B7F575FF375DD585B559 /* Pods-baraj24.debug.xcconfig */,
+				AE624747D2A273E93E5D863F /* Pods-baraj24.release.xcconfig */,
+				86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */,
+				CCCF8EAAC062659231B14B05 /* Pods-baraj24-baraj24UITests.release.xcconfig */,
+				D3A6D212E292B841469918D6 /* Pods-baraj24Tests.debug.xcconfig */,
+				70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E74A08AB252E71B3762753A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */,
+				3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */,
+				B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6F41E92A81108900055D87 /* Build configuration list for PBXNativeTarget "baraj24" */;
 			buildPhases = (
+				6CF0FCDECDDEB780BB5A4116 /* [CP] Check Pods Manifest.lock */,
 				1D6F41B82A81108700055D87 /* Sources */,
 				1D6F41B92A81108700055D87 /* Frameworks */,
 				1D6F41BA2A81108700055D87 /* Resources */,
+				96D8C9CF4BABC014780CBEDA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +208,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6F41EC2A81108900055D87 /* Build configuration list for PBXNativeTarget "baraj24Tests" */;
 			buildPhases = (
+				4DF906316E8EE84EC6279248 /* [CP] Check Pods Manifest.lock */,
 				1D6F41D12A81108900055D87 /* Sources */,
 				1D6F41D22A81108900055D87 /* Frameworks */,
 				1D6F41D32A81108900055D87 /* Resources */,
@@ -175,9 +227,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6F41EF2A81108900055D87 /* Build configuration list for PBXNativeTarget "baraj24UITests" */;
 			buildPhases = (
+				465187D1C5BB87D0BCAF30D2 /* [CP] Check Pods Manifest.lock */,
 				1D6F41DB2A81108900055D87 /* Sources */,
 				1D6F41DC2A81108900055D87 /* Frameworks */,
 				1D6F41DD2A81108900055D87 /* Resources */,
+				28665EAB2983A7D79B010ABE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,6 +293,7 @@
 			files = (
 				1D6F41CF2A81108900055D87 /* LaunchScreen.storyboard in Resources */,
 				1D6F41CC2A81108900055D87 /* Assets.xcassets in Resources */,
+				1D5323142A94A58A00EA8114 /* Helpers in Resources */,
 				1D6F41C72A81108800055D87 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +314,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28665EAB2983A7D79B010ABE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		465187D1C5BB87D0BCAF30D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-baraj24-baraj24UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DF906316E8EE84EC6279248 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-baraj24Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CF0FCDECDDEB780BB5A4116 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-baraj24-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96D8C9CF4BABC014780CBEDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-baraj24/Pods-baraj24-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-baraj24/Pods-baraj24-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-baraj24/Pods-baraj24-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D6F41B82A81108700055D87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -267,7 +425,9 @@
 				1D6F41F32A81121A00055D87 /* pickCityVC.swift in Sources */,
 				1D6F41C42A81108800055D87 /* ViewController.swift in Sources */,
 				1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */,
+				1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */,
 				1D6F41CA2A81108800055D87 /* baraj24.xcdatamodeld in Sources */,
+				1D781DF82A92A6EF00912EF4 /* ChartsViewController.swift in Sources */,
 				1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +600,7 @@
 		};
 		1D6F41EA2A81108900055D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE28B7F575FF375DD585B559 /* Pods-baraj24.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -448,6 +609,7 @@
 				DEVELOPMENT_TEAM = 4NVD8GK9BF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = baraj24/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = TEST;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -468,6 +630,7 @@
 		};
 		1D6F41EB2A81108900055D87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE624747D2A273E93E5D863F /* Pods-baraj24.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -476,6 +639,7 @@
 				DEVELOPMENT_TEAM = 4NVD8GK9BF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = baraj24/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = TEST;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -496,6 +660,7 @@
 		};
 		1D6F41ED2A81108900055D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3A6D212E292B841469918D6 /* Pods-baraj24Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +681,7 @@
 		};
 		1D6F41EE2A81108900055D87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -536,6 +702,7 @@
 		};
 		1D6F41F02A81108900055D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +721,7 @@
 		};
 		1D6F41F12A81108900055D87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCCF8EAAC062659231B14B05 /* Pods-baraj24-baraj24UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,9 +9,11 @@ import UIKit
 
 class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var navBar: UINavigationItem!
+    
+    @IBOutlet weak var shadowBox: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    @IBOutlet weak var cityLabel: UILabel!
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -30,7 +32,11 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         
         selectedCity = city[row]
         
-        cityLabel.text = selectedCity
+        navBar.title = selectedCity
+    
+        
+
+        
     }
     
     var addCity = Set<String>()
@@ -38,11 +44,27 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     var selectedCity = String()
     var city = ["Şehir Seçin"]
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-       
         
-        let url = URL(string: "https://emiraksu.net/12082023.json")
+        
+        
+        
+        super.viewDidLoad()
+        shadowBox.layer.shadowColor = UIColor.black.cgColor
+        shadowBox.layer.shadowOffset = CGSize(width: 3, height: 5)
+        shadowBox.layer.shadowOpacity = 0.5
+        shadowBox.layer.shadowRadius = 4
+        
+     
+        pickerView.setValue(UIColor.black, forKey: "textColor")
+        
+        if UserDefaults.standard.value(forKey:"isCitySelected") != nil{
+            performSegue(withIdentifier: "toDetails", sender: nil)
+        }
+        
+        let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
         
         let session = URLSession.shared
         
@@ -60,11 +82,11 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 if data != nil{
                     
                     do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String,Any>
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data!) as! NSArray
                         
                         DispatchQueue.main.async {
                             
-                            if let temp = jsonResponse["Şehir"] as? [String :String]{
+                            if let temp = jsonResponse[2] as? [String :String]{
                                 print(temp.values)
                                 
                                 for i in temp.values{
@@ -72,7 +94,7 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                                 }
                                 
                                 for i in self.addCity{
-                                   
+                                    
                                     self.city.append(i)
                                     
                                 }
@@ -96,18 +118,38 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
             
         }
         task.resume()
-        cityLabel.text = city[0]
         pickerView.delegate = self
         pickerView.dataSource = self
+        
+        
+        
     }
     
 
     @IBAction func nextButtonClicked(_ sender: Any) {
         
-        performSegue(withIdentifier: "toTableView", sender: nil)
+      
+      
+        UserDefaults.standard.set(selectedCity, forKey:"isCitySelected")
         
+       
+        performSegue(withIdentifier: "toDetails", sender: nil)
+   
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toTableView"{
+            
+            let destinationVC = segue.destination as! ViewController
+            
+            destinationVC.selectedCity = self.selectedCity
+            
+            
+        }
         
     }
     
+   
 
 }

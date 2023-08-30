@@ -14,61 +14,15 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     @IBOutlet weak var shadowBox: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return city.count
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return city[row]
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        selectedCity = city[row]
-        
-        navBar.title = selectedCity
-    
-        
-
-        
-    }
-    
-    var addCity = Set<String>()
-    
-    
-    var selectedCity = String()
-    var city = ["Şehir Seçin"]
-    
-    
-    override func viewDidLoad() {
-        
-        
-        
-        
-        super.viewDidLoad()
-        shadowBox.layer.shadowColor = UIColor.black.cgColor
-        shadowBox.layer.shadowOffset = CGSize(width: 3, height: 5)
-        shadowBox.layer.shadowOpacity = 0.5
-        shadowBox.layer.shadowRadius = 4
-        
-     
-        pickerView.setValue(UIColor.black, forKey: "textColor")
-        
-        if UserDefaults.standard.value(forKey:"isCitySelected") != nil{
-            performSegue(withIdentifier: "toDetails", sender: nil)
-        }
-        
+    func getCityData(){
         let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
+        
+        
+        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
         
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url!) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             
             if error != nil{
                 let alert = UIAlertController(title: "error", message: "Hata", preferredStyle: .alert)
@@ -118,6 +72,58 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
             
         }
         task.resume()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return city.count
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return city[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedCity = city[row]
+        
+        navBar.title = selectedCity
+    
+        
+
+        
+    }
+    
+    var addCity = Set<String>()
+    
+    
+    var selectedCity = String()
+    var city = ["Şehir Seçin"]
+    
+    
+    override func viewDidLoad() {
+        
+        
+        
+        
+        super.viewDidLoad()
+    
+        
+     
+        pickerView.setValue(UIColor.label, forKey: "textColor")
+        
+        if UserDefaults.standard.value(forKey:"isCitySelected") != nil{
+            performSegue(withIdentifier: "toDetails", sender: nil)
+        }
+        
+        
+        getCityData()
+        
         pickerView.delegate = self
         pickerView.dataSource = self
         

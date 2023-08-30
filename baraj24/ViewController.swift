@@ -8,14 +8,45 @@
 import UIKit
 import Charts
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate {
-    
-    @IBOutlet weak var chartBack: UIView!
-    var selectedCity = String()
-    var pieChart = PieChartView()
-    var avgRates = [Double]()
-    var ratesSum = Double()
-    var savedRates = Double()
+   
+    var selectedCity = String() // City which was chossen previous section
+    var pieChart = PieChartView() // PieChart for showing data
+    var avgRates = [Double]() // Dam's average rate
+    var ratesSum = Double() // Summary of all dams in a city
+    var savedRates = Double() //
+    let chartBack = UIView() // Item that behind for PieGraph
+    var selectedDam = String()
+    var barajList = [String]()
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navBar: UINavigationItem!
+    
+    @IBOutlet weak var backGraph: UIView!
+    @IBOutlet weak var damRateLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    @IBOutlet weak var damRateText: UILabel!
+    
+  
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        selectedDam = barajList[indexPath.row]
+        performSegue(withIdentifier: "toDamDetails", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDamDetails"{
+            
+            let destinationVC = segue.destination as! ChartsViewController
+            
+            destinationVC.annotationTitle = selectedDam
+            
+            
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return barajList.count
 
@@ -29,9 +60,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.textLabel?.text = barajList[indexPath.row]
         
         
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor(named: "Secondary")
         
-        cell.textLabel?.textColor = .black
+        cell.textLabel?.textColor = UIColor.label
+        
         bgView.backgroundColor = .tertiaryLabel
         
         cell.selectedBackgroundView  = bgView
@@ -42,30 +74,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
 
  
-    @IBOutlet weak var tableView: UITableView!
-    var barajList = [String]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        chartBack.layer.shadowColor = UIColor.black.cgColor
-        chartBack.layer.shadowOffset = CGSize(width: 3, height: 5)
-        chartBack.layer.shadowOpacity = 0.5
-        chartBack.layer.shadowRadius = 4
-     
+        getData()
         
-        pieChart.delegate = self
+        createTableView()
+        
         selectedCity = UserDefaults.standard.object(forKey: "isCitySelected") as! String
        
         
-        
+        cityLabel.text = selectedCity
         navBar.title = selectedCity
         
         
         
 
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        tableView.separatorColor = .white
         if let temp = UserDefaults.standard.object(forKey: "savedRate") as? Double{
             ratesSum = temp
         }
@@ -75,38 +100,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        pieChart.frame = CGRect(x: self.view.frame.width , y: self.view.frame.height , width: 250, height: 250)
         
-        
-        pieChart.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2 + 150)
-        view.addSubview(pieChart)
-        
-        var entries = [ChartDataEntry]()
-        
-      
-        entries.append(PieChartDataEntry(value: ratesSum, label: "Dolu"))
-        entries.append(PieChartDataEntry(value: 100-ratesSum, label: "Boş"))
-
-        let set = PieChartDataSet(entries: entries)
-        
-        set.colors = ChartColorTemplates.pastel()
-        let data = PieChartData(dataSet: set)
-        pieChart.data = data
-       
+       createPieChart()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navBar.backButtonTitle = "Şehir Seç"
        
-        getData()
         
         
        
         
     }
     
-  
+    
     func getData(){
         barajList.removeAll()
         tableView.reloadData()
@@ -114,10 +122,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
-        
+        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url!) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             
             if error != nil{
                 //alert
@@ -148,7 +156,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                         if i.key == a{
                                             if let temp = i.value as? Double{
                                                 self.avgRates.append(temp)
+                                                
                                             }
+                                            
+                                           
+                                            
+                                           
                                         }
                                     }
                                 }
@@ -158,7 +171,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                             for i in self.avgRates{
                                 self.ratesSum += i
                             }
-                            self.ratesSum = self.ratesSum/Double(self.avgRates.count)
+                            self.ratesSum = floor(self.ratesSum/Double(self.avgRates.count) * 100) / 100.00
+                            self.damRateLabel.text = "%" + String(describing: self.ratesSum)
                             UserDefaults.standard.set(self.ratesSum, forKey: "savedRate")
                             
                             
@@ -176,7 +190,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         task.resume()
     }
     
+    func createPieChart(){
+        pieChart.delegate = self
+
+        pieChart.frame = CGRect(x: self.backGraph.frame.width , y: self.backGraph.frame.height , width: 300, height: 200)
+        
+        
+        mainView.addSubview(backGraph)
+        mainView.addSubview(pieChart)
+       
+        pieChart.center = backGraph.center
+        var entries = [ChartDataEntry]()
+        
+      
+        entries.append(PieChartDataEntry(value: ratesSum, label: "Dolu"))
+        entries.append(PieChartDataEntry(value: 100-ratesSum, label: "Boş"))
+
+        let set = PieChartDataSet(entries: entries)
+        
+        set.colors = ChartColorTemplates.pastel()
+        let data = PieChartData(dataSet: set)
+        pieChart.data = data
+    }
+    
+    func createTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.separatorColor = .lightGray
+    }
   
+ 
     
 }
 

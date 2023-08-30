@@ -7,11 +7,15 @@
 
 import UIKit
 import MapKit
-class MapsViewController: UIViewController, MKMapViewDelegate {
+import CoreLocation
+class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
     
+    @IBOutlet weak var findLocationImage: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
+
     var coordinatesLatitude = [String:Any]()
     var coordinatesLongitude = [String:Any]()
     var liste = [String]()
@@ -33,13 +37,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate {
             
         }
     }
-    override func viewDidLoad() {
-        
-        
-        super.viewDidLoad()
-        
-        mapView.delegate = self
-        
+    
+    
+    func getLocationData(){
         let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
         
         let session = URLSession.shared
@@ -104,7 +104,43 @@ class MapsViewController: UIViewController, MKMapViewDelegate {
             }
         }
         task.resume()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        
+        let region = MKCoordinateRegion(center: location, span: span)
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    @objc func findMyLocation(){
+        
+        
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        locationManager.startUpdatingLocation()
+    }
+    override func viewDidLoad() {
+        
+        
+        super.viewDidLoad()
+        locationManager.delegate = self
+
+        mapView.delegate = self
+        
+        getLocationData()
+        
+        findLocationImage.isUserInteractionEnabled = true
+        
+        let gestureRec = UITapGestureRecognizer(target: self, action: #selector(findMyLocation))
+        
+        findLocationImage.addGestureRecognizer(gestureRec)
+    
 
         
    

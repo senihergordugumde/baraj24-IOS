@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1786070F806D568F5E7DD185 /* Pods_baraj24Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */; };
 		1D5323142A94A58A00EA8114 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = 1D5323132A94A58A00EA8114 /* Helpers */; };
+		1D63EB4C2A9A970F00C953A2 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D63EB4B2A9A970F00C953A2 /* testViewController.swift */; };
 		1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41BF2A81108800055D87 /* AppDelegate.swift */; };
 		1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41C12A81108800055D87 /* SceneDelegate.swift */; };
 		1D6F41C42A81108800055D87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41C32A81108800055D87 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1D5323132A94A58A00EA8114 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
+		1D63EB4B2A9A970F00C953A2 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		1D6F41BC2A81108800055D87 /* baraj24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baraj24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F41BF2A81108800055D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D6F41C12A81108800055D87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				1D6F41C12A81108800055D87 /* SceneDelegate.swift */,
 				1D6F41C32A81108800055D87 /* ViewController.swift */,
 				1D6F41C52A81108800055D87 /* Main.storyboard */,
+				1D63EB4B2A9A970F00C953A2 /* testViewController.swift */,
 				1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */,
 				1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */,
 				1D6F41F22A81121900055D87 /* pickCityVC.swift */,
@@ -424,6 +427,7 @@
 			files = (
 				1D6F41F32A81121A00055D87 /* pickCityVC.swift in Sources */,
 				1D6F41C42A81108800055D87 /* ViewController.swift in Sources */,
+				1D63EB4C2A9A970F00C953A2 /* testViewController.swift in Sources */,
 				1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */,
 				1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */,
 				1D6F41CA2A81108800055D87 /* baraj24.xcdatamodeld in Sources */,

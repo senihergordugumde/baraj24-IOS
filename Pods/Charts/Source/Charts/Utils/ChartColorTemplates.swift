@@ -39,7 +39,7 @@ open class ChartColorTemplates: NSObject
     @objc open class func pastel () -> [NSUIColor]
     {
         return [
-            NSUIColor(red: 111/255.0, green: 183/255.0, blue: 249/255.0, alpha: 1.0), // dolu
+            NSUIColor(red: 2/255.0, green: 121/255.0, blue: 224/255.0, alpha: 1.0), // dolu
             NSUIColor(red: 239/255.0, green: 71/255.0, blue: 111/255.0, alpha: 1.0), // boş
             NSUIColor(red: 217/255.0, green: 184/255.0, blue: 162/255.0, alpha: 1.0),
             NSUIColor(red: 191/255.0, green: 134/255.0, blue: 134/255.0, alpha: 1.0),

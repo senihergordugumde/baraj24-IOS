@@ -13,6 +13,7 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
     
     @IBOutlet weak var damCityLabel: UILabel!
     
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var chartNameLabel: UILabel!
     var pieChart = PieChartView()
     var lineChart = LineChartView()
@@ -51,10 +52,10 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
     
     
     func createPieChart(){
-        pieChart.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width/2, height: self.view.frame.size.width/2)
+        pieChart.frame = CGRect(x: 0, y: 0, width: self.pieView.frame.size.width, height: self.pieView.frame.size.height)
         
         pieChart.center = pieView.center
-        view.addSubview(pieChart)
+        mainView.addSubview(pieChart)
         
         var entries = [ChartDataEntry]()
         
@@ -199,9 +200,9 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
     
     func createLineChart(){
         lineChart.delegate = self
-        lineChart.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.size.width-40), height: Int(self.view.frame.size.width-40))
+        lineChart.frame = CGRect(x: 0, y: 0, width: self.lineChartView.frame.size.width, height: self.lineChartView.frame.size.height/1.5)
         lineChart.center = lineChartView.center
-        view.addSubview(lineChart)
+        mainView.addSubview(lineChart)
         
         
         var entries = [ChartDataEntry]()

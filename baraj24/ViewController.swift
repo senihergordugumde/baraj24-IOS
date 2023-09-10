@@ -14,7 +14,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var avgRates = [Double]() // Dam's average rate
     var ratesSum = Double() // Summary of all dams in a city
     var savedRates = Double() //
-    let chartBack = UIView() // Item that behind for PieGraph
+    let chartBack = UIView() // Item that behind for PieGraph (Background)
     var selectedDam = String()
     var barajList = [String]()
     @IBOutlet weak var mainView: UIView!
@@ -88,7 +88,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         navBar.title = selectedCity
         
         
-        
 
         
         if let temp = UserDefaults.standard.object(forKey: "savedRate") as? Double{
@@ -102,11 +101,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidAppear(_ animated: Bool) {
         
        createPieChart()
-        
+       navBar.backButtonTitle = "Şehir Seç"
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navBar.backButtonTitle = "Şehir Seç"
+       
        
         
         

@@ -8,10 +8,13 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMobileAds
+
 class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     
-    
+    var bannerView: GADBannerView!
+
     @IBOutlet weak var findLocationImage: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -40,7 +43,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     
     func getLocationData(){
-        let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
+        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
         
         let session = URLSession.shared
         
@@ -129,6 +132,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         
         super.viewDidLoad()
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+
+        addBannerViewToView(bannerView)
         locationManager.delegate = self
 
         mapView.delegate = self
@@ -142,7 +148,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         findLocationImage.addGestureRecognizer(gestureRec)
     
 
-        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
    
   
             
@@ -161,4 +169,26 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
          */
         
     }
+    
+    
+     func addBannerViewToView(_ bannerView: GADBannerView) {
+         bannerView.translatesAutoresizingMaskIntoConstraints = false
+         view.addSubview(bannerView)
+         view.addConstraints(
+           [NSLayoutConstraint(item: bannerView,
+                               attribute: .bottom,
+                               relatedBy: .equal,
+                               toItem: view.safeAreaLayoutGuide,
+                               attribute: .bottom,
+                               multiplier: 1,
+                               constant: 0),
+            NSLayoutConstraint(item: bannerView,
+                               attribute: .centerX,
+                               relatedBy: .equal,
+                               toItem: view,
+                               attribute: .centerX,
+                               multiplier: 1,
+                               constant: 0)
+           ])
+        }
 }

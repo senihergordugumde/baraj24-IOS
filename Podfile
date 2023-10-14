@@ -6,6 +6,8 @@ target 'baraj24' do
   use_frameworks!
 
 pod 'Charts'
+pod 'Google-Mobile-Ads-SDK'
+
 
   # Pods for baraj24
 

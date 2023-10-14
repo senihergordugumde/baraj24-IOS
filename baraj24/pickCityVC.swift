@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var navBar: UINavigationItem!
-    
+    var bannerView: GADBannerView!
     @IBOutlet weak var shadowBox: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
     func getCityData(){
-        let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
+        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
         
         
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
@@ -51,7 +52,9 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                                     
                                     self.city.append(i)
                                     
+                                    
                                 }
+                                self.city  = self.city.sorted(by: {$0 < $1})
                                 self.pickerView.reloadAllComponents()
                                 
                             }
@@ -103,7 +106,7 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     
     var selectedCity = String()
-    var city = ["Şehir Seçin"]
+    var city = [String]()
     
     
     override func viewDidLoad() {
@@ -114,7 +117,9 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         super.viewDidLoad()
     
         
-     
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+
+        addBannerViewToView(bannerView)
         pickerView.setValue(UIColor.label, forKey: "textColor")
         
         if UserDefaults.standard.value(forKey:"isCitySelected") != nil{
@@ -127,11 +132,32 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        
-        
+        city = city.sorted(by: {$0 < $1})
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
-
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     @IBAction func nextButtonClicked(_ sender: Any) {
         
       

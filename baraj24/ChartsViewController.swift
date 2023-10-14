@@ -7,10 +7,33 @@
 
 import Charts
 import UIKit
+import GoogleMobileAds
 
-class ChartsViewController: UIViewController,ChartViewDelegate {
-    @IBOutlet weak var pieView: UIView!
+class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        datesList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return datesList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       
+        self.choosenDates = Int(self.datesList[row])!
+        self.createLineChart()
+    }
+    
+    
+    @IBOutlet weak var pieView: UIView!
+    var bannerView: GADBannerView!
+
+    @IBOutlet weak var pickerDate: UIPickerView!
     @IBOutlet weak var damCityLabel: UILabel!
     
     @IBOutlet weak var mainView: UIView!
@@ -24,30 +47,60 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
     var currentRate = Double()
     var tarih = [String]()
     var doluluk = [Double]()
-
+    var choosenDates = 5
+    var datesList = ["5","7","10","15","30"]
     @IBOutlet weak var lineChartView: UIView!
     @IBOutlet weak var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+
+        addBannerViewToView(bannerView)
         chartNameLabel.text = annotationTitle
         navBar.title = annotationTitle
         pieChart.delegate = self
-        
+        pickerDate.delegate = self
       
-        getDataForPieChart()
+        
         getDataForLineChart()
-        
       
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
-   
+    
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+       }
     
 
     override func viewDidAppear(_ animated: Bool) {
-        addDataForPieChart()
-        createPieChart()
       
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getDataForPieChart()
+    }
         
+    
     
     
     
@@ -85,11 +138,14 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
                 self.damCityLabel.text = i.value
             }
         }
+        
+        createPieChart()
+
     }
     
     
     func getDataForPieChart(){
-        let url = URL(string: "https://emiraksu.net/dataBaraj24.json")
+        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
         
         let session = URLSession.shared
         
@@ -128,6 +184,8 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
                                                 else{
                                                     print("hata")
                                                 }
+                                                self.addDataForPieChart()
+
                                             }
                                         }catch{
                                             print("1hata")
@@ -139,11 +197,12 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
         }
         
         task.resume()
+        
     }
     
     
     func getDataForLineChart(){
-        let url = URL(string: "https://emiraksu.net/oldData.json")
+        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/oldData.json")
         
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
 
@@ -206,31 +265,40 @@ class ChartsViewController: UIViewController,ChartViewDelegate {
         
         
         var entries = [ChartDataEntry]()
-        
         var counter2 = 0
         var counter = 1
-        for x in doluluk {
-            
-            for y in stride(from: counter2, to: counter, by: 1){
+        var lastFiveRate = [Double]()
+        if doluluk.count >= self.choosenDates{
+            lastFiveRate = Array(doluluk.suffix(self.choosenDates))// Son 5 günün doluluk oranları
+        }
+        
+        
+        let lastFiveDate = Array(self.tarih.suffix(self.choosenDates)) // Son 5 günün tarihleri
+    
+        for x in lastFiveRate {  // Son 5 günün doluluk oranları üzerinde döngü başlatıyor.
+            for y in stride(from: counter2, to: counter, by: 1){  // 0'dan başlayan bir sayaç başlatır. sayaç barajların doluluk oranlarını tamamen doldurduğuna biter.
                 
-                entries.append(ChartDataEntry(x: Double(y), y: Double(x)))
+                entries.append(ChartDataEntry(x: Double(y), y: Double(x)))  // y eksenine baraj doluluk oranını, x eksenine düzlem üzerinde yerleşeceği konumu ekler.
+                
                 counter += 1
                 counter2 += 1
-                if counter > doluluk.count{
+                if counter > lastFiveRate.count{
                     counter = 0
                 }
             }
         }
         
-        
+  
         let set = LineChartDataSet (entries: entries)
         let data = LineChartData(dataSet: set)
+        
         lineChart.data = data
-        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: self.tarih)
+        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: lastFiveDate)
         lineChart.xAxis.labelPosition = .bottom // Etiketler altta görünsün
         lineChart.xAxis.labelRotationAngle = -25
         lineChart.data = data
         lineChart.xAxis.granularity = 1.0
+        lineChart.isUserInteractionEnabled = false
     }
     
     

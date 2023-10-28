@@ -16,7 +16,7 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     @IBOutlet weak var pickerView: UIPickerView!
     
     func getCityData(){
-        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
+        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
         
         
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
@@ -67,12 +67,6 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                     
                 }
             }
-            
-           
-            
-        
-            
-            
         }
         task.resume()
     }
@@ -133,7 +127,7 @@ class pickCityVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         pickerView.dataSource = self
         
         city = city.sorted(by: {$0 < $1})
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-4730844635676967/7298915875"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }

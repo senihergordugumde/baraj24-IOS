@@ -39,11 +39,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var damRateWarningText: UILabel!
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-        selectedDam = barajList[indexPath.row]
-        performSegue(withIdentifier: "toDamDetails", sender: nil)
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDamDetails"{
@@ -57,10 +53,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
+    // MARK: - TableView Delegate , Datasource
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return barajList.count
 
-}
+    }
     
     
     
@@ -82,38 +80,39 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        selectedDam = barajList[indexPath.row]
+        performSegue(withIdentifier: "toDamDetails", sender: nil)
+    }
     
-   
+   // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
-
-        addBannerViewToView(bannerView)
-
+        configureBannerAd()
         createTableView()
-        
         selectedCity = UserDefaults.standard.object(forKey: "isCitySelected") as! String
-       
-        
         cityLabel.text = selectedCity
         navBar.title = selectedCity
-        
-        
-
         
         if let temp = UserDefaults.standard.object(forKey: "savedRate") as? Double{
             ratesSum = temp
         }
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+
+       navBar.backButtonTitle = "Şehir Seç"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
        
     }
+    
+    // MARK: - ADMOB Banner Settings
+    
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
@@ -134,16 +133,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                               constant: 0)
           ])
        }
-    override func viewDidAppear(_ animated: Bool) {
-
-       navBar.backButtonTitle = "Şehir Seç"
+    
+    func configureBannerAd(){
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = "ca-app-pub-4730844635676967/9589219055"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        getData()
-       
-        weatherRequest()
-    }
     
     func weatherRequest(){
         let url = URL(string: "http://api.weatherapi.com/v1/forecast.json?key=f6fc556d51814cd6836161118230510&q=\(self.selectedCity)&days=7")
@@ -207,7 +205,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        
         
         
-        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
+        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
         let session = URLSession.shared
         

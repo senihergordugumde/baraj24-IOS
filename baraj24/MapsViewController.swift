@@ -43,7 +43,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
     
     
     func getLocationData(){
-        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
+        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
         
         let session = URLSession.shared
         
@@ -148,7 +148,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         findLocationImage.addGestureRecognizer(gestureRec)
     
 
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-4730844635676967/3147099636"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
    

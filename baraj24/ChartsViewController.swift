@@ -64,7 +64,7 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
         
         getDataForLineChart()
       
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-4730844635676967/6479839980"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
@@ -145,7 +145,7 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
     
     
     func getDataForPieChart(){
-        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/dataBaraj24.json")
+        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
         
         let session = URLSession.shared
         
@@ -202,7 +202,7 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
     
     
     func getDataForLineChart(){
-        let url = URL(string: "https://emiraksu.net/wp-content/uploads/data/oldData.json")
+        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/oldData.json")
         
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
 

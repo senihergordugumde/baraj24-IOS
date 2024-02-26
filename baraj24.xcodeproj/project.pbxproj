@@ -8,7 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1786070F806D568F5E7DD185 /* Pods_baraj24Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */; };
-		1D5323142A94A58A00EA8114 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = 1D5323132A94A58A00EA8114 /* Helpers */; };
+		1D2917E42B89C7A300C5E4FE /* PickCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */; };
+		1D2917E62B89D29900C5E4FE /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E52B89D29900C5E4FE /* DetailsVC.swift */; };
+		1D2917E92B89E47E00C5E4FE /* EALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E82B89E47E00C5E4FE /* EALabel.swift */; };
+		1D2917EB2B89E6D400C5E4FE /* EATitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917EA2B89E6D400C5E4FE /* EATitle.swift */; };
+		1D2917EE2B89F21900C5E4FE /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917ED2B89F21900C5E4FE /* UIViewController+Ext.swift */; };
+		1D2917F02B8A260700C5E4FE /* DamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917EF2B8A260700C5E4FE /* DamVC.swift */; };
+		1D4EDFBA2B7CF38500451EB1 /* Baraj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4EDFB92B7CF38500451EB1 /* Baraj.swift */; };
 		1D63EB4C2A9A970F00C953A2 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D63EB4B2A9A970F00C953A2 /* testViewController.swift */; };
 		1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41BF2A81108800055D87 /* AppDelegate.swift */; };
 		1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41C12A81108800055D87 /* SceneDelegate.swift */; };
@@ -20,9 +26,16 @@
 		1D6F41DA2A81108900055D87 /* baraj24Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41D92A81108900055D87 /* baraj24Tests.swift */; };
 		1D6F41E42A81108900055D87 /* baraj24UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41E32A81108900055D87 /* baraj24UITests.swift */; };
 		1D6F41E62A81108900055D87 /* baraj24UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */; };
-		1D6F41F32A81121A00055D87 /* pickCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41F22A81121900055D87 /* pickCityVC.swift */; };
+		1D6F41F32A81121A00055D87 /* cityPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F41F22A81121900055D87 /* cityPickVC.swift */; };
 		1D781DF82A92A6EF00912EF4 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */; };
+		1D9D7D9E2B861B96006A1DD8 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7D9D2B861B96006A1DD8 /* FirebaseDatabase */; };
+		1D9D7DA02B861B96006A1DD8 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7D9F2B861B96006A1DD8 /* FirebaseDatabaseSwift */; };
+		1D9D7DA22B861B96006A1DD8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */; };
+		1D9D7DA42B861B96006A1DD8 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */; };
+		1D9D7DA62B861B96006A1DD8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */; };
+		1D9D7DAA2B861E28006A1DD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */; };
 		1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */; };
+		1DE29B912B876A0600A1993E /* OldData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE29B902B876A0600A1993E /* OldData.swift */; };
 		448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */; };
 		EE44814477097F09840EB3C4 /* Pods_baraj24_baraj24UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D5323132A94A58A00EA8114 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
+		1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickCityVC.swift; sourceTree = "<group>"; };
+		1D2917E52B89D29900C5E4FE /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		1D2917E82B89E47E00C5E4FE /* EALabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EALabel.swift; sourceTree = "<group>"; };
+		1D2917EA2B89E6D400C5E4FE /* EATitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EATitle.swift; sourceTree = "<group>"; };
+		1D2917ED2B89F21900C5E4FE /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		1D2917EF2B8A260700C5E4FE /* DamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamVC.swift; sourceTree = "<group>"; };
+		1D4EDFB92B7CF38500451EB1 /* Baraj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Baraj.swift; sourceTree = "<group>"; };
 		1D63EB4B2A9A970F00C953A2 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		1D6F41BC2A81108800055D87 /* baraj24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = baraj24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F41BF2A81108800055D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +80,11 @@
 		1D6F41DF2A81108900055D87 /* baraj24UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = baraj24UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F41E32A81108900055D87 /* baraj24UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITests.swift; sourceTree = "<group>"; };
 		1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1D6F41F22A81121900055D87 /* pickCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickCityVC.swift; sourceTree = "<group>"; };
+		1D6F41F22A81121900055D87 /* cityPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityPickVC.swift; sourceTree = "<group>"; };
 		1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		1DE29B902B876A0600A1993E /* OldData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldData.swift; sourceTree = "<group>"; };
 		3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24_baraj24UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24Tests.release.xcconfig"; path = "Target Support Files/Pods-baraj24Tests/Pods-baraj24Tests.release.xcconfig"; sourceTree = "<group>"; };
 		86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24-baraj24UITests.debug.xcconfig"; path = "Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +101,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9D7DA02B861B96006A1DD8 /* FirebaseDatabaseSwift in Frameworks */,
+				1D9D7DA22B861B96006A1DD8 /* FirebaseFirestore in Frameworks */,
+				1D9D7D9E2B861B96006A1DD8 /* FirebaseDatabase in Frameworks */,
+				1D9D7DA42B861B96006A1DD8 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */,
+				1D9D7DA62B861B96006A1DD8 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +129,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D2917E12B89C6BB00C5E4FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */,
+				1D2917E52B89D29900C5E4FE /* DetailsVC.swift */,
+				1D2917EF2B8A260700C5E4FE /* DamVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1D2917E22B89C6C400C5E4FE /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				1D6F41BF2A81108800055D87 /* AppDelegate.swift */,
+				1D6F41C12A81108800055D87 /* SceneDelegate.swift */,
+				1D6F41CB2A81108900055D87 /* Assets.xcassets */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		1D2917E72B89E46E00C5E4FE /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				1D2917E82B89E47E00C5E4FE /* EALabel.swift */,
+				1D2917EA2B89E6D400C5E4FE /* EATitle.swift */,
+			);
+			name = CustomUI;
+			sourceTree = "<group>";
+		};
+		1D2917EC2B89F20200C5E4FE /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				1D2917ED2B89F21900C5E4FE /* UIViewController+Ext.swift */,
+			);
+			name = Ext;
+			sourceTree = "<group>";
+		};
+		1D4EDFB82B7CF37500451EB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D4EDFB92B7CF38500451EB1 /* Baraj.swift */,
+				1DE29B902B876A0600A1993E /* OldData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		1D6F41B32A81108700055D87 = {
 			isa = PBXGroup;
 			children = (
+				1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */,
 				1D6F41BE2A81108800055D87 /* baraj24 */,
 				1D6F41D82A81108900055D87 /* baraj24Tests */,
 				1D6F41E22A81108900055D87 /* baraj24UITests */,
@@ -128,16 +201,17 @@
 		1D6F41BE2A81108800055D87 /* baraj24 */ = {
 			isa = PBXGroup;
 			children = (
-				1D5323132A94A58A00EA8114 /* Helpers */,
-				1D6F41BF2A81108800055D87 /* AppDelegate.swift */,
-				1D6F41C12A81108800055D87 /* SceneDelegate.swift */,
+				1D2917EC2B89F20200C5E4FE /* Ext */,
+				1D2917E72B89E46E00C5E4FE /* CustomUI */,
+				1D2917E22B89C6C400C5E4FE /* Supporting */,
+				1D2917E12B89C6BB00C5E4FE /* Controller */,
+				1D4EDFB82B7CF37500451EB1 /* Model */,
 				1D6F41C32A81108800055D87 /* ViewController.swift */,
 				1D6F41C52A81108800055D87 /* Main.storyboard */,
 				1D63EB4B2A9A970F00C953A2 /* testViewController.swift */,
 				1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */,
 				1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */,
-				1D6F41F22A81121900055D87 /* pickCityVC.swift */,
-				1D6F41CB2A81108900055D87 /* Assets.xcassets */,
+				1D6F41F22A81121900055D87 /* cityPickVC.swift */,
 				1D6F41CD2A81108900055D87 /* LaunchScreen.storyboard */,
 				1D6F41D02A81108900055D87 /* Info.plist */,
 				1D6F41C82A81108800055D87 /* baraj24.xcdatamodeld */,
@@ -203,6 +277,13 @@
 			dependencies = (
 			);
 			name = baraj24;
+			packageProductDependencies = (
+				1D9D7D9D2B861B96006A1DD8 /* FirebaseDatabase */,
+				1D9D7D9F2B861B96006A1DD8 /* FirebaseDatabaseSwift */,
+				1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */,
+				1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */,
+				1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */,
+			);
 			productName = baraj24;
 			productReference = 1D6F41BC2A81108800055D87 /* baraj24.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +359,9 @@
 				Base,
 			);
 			mainGroup = 1D6F41B32A81108700055D87;
+			packageReferences = (
+				1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1D6F41BD2A81108800055D87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -296,7 +380,7 @@
 			files = (
 				1D6F41CF2A81108900055D87 /* LaunchScreen.storyboard in Resources */,
 				1D6F41CC2A81108900055D87 /* Assets.xcassets in Resources */,
-				1D5323142A94A58A00EA8114 /* Helpers in Resources */,
+				1D9D7DAA2B861E28006A1DD8 /* GoogleService-Info.plist in Resources */,
 				1D6F41C72A81108800055D87 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,14 +509,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6F41F32A81121A00055D87 /* pickCityVC.swift in Sources */,
+				1D6F41F32A81121A00055D87 /* cityPickVC.swift in Sources */,
+				1D2917F02B8A260700C5E4FE /* DamVC.swift in Sources */,
+				1D2917E62B89D29900C5E4FE /* DetailsVC.swift in Sources */,
+				1D2917EE2B89F21900C5E4FE /* UIViewController+Ext.swift in Sources */,
+				1D2917EB2B89E6D400C5E4FE /* EATitle.swift in Sources */,
 				1D6F41C42A81108800055D87 /* ViewController.swift in Sources */,
 				1D63EB4C2A9A970F00C953A2 /* testViewController.swift in Sources */,
 				1D6F41C02A81108800055D87 /* AppDelegate.swift in Sources */,
+				1D2917E92B89E47E00C5E4FE /* EALabel.swift in Sources */,
 				1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */,
+				1DE29B912B876A0600A1993E /* OldData.swift in Sources */,
 				1D6F41CA2A81108800055D87 /* baraj24.xcdatamodeld in Sources */,
+				1D4EDFBA2B7CF38500451EB1 /* Baraj.swift in Sources */,
 				1D781DF82A92A6EF00912EF4 /* ChartsViewController.swift in Sources */,
 				1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */,
+				1D2917E42B89C7A300C5E4FE /* PickCityVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.4;
+				MARKETING_VERSION = 0.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emiraksu.baraj24Application1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -658,7 +750,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.4;
+				MARKETING_VERSION = 0.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.emiraksu.baraj24Application1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -788,6 +880,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D9D7D9D2B861B96006A1DD8 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1D9D7D9F2B861B96006A1DD8 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1D6F41C82A81108800055D87 /* baraj24.xcdatamodeld */ = {

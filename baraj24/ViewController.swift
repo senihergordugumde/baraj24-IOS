@@ -8,11 +8,11 @@
 import UIKit
 import Charts
 import GoogleMobileAds
-import WeatherKit
+import FirebaseFirestore
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ChartViewDelegate {
     var bannerView: GADBannerView!
-    var latitude = Double()
-    var longitude = Double()
+   
     @IBOutlet weak var rainAlert: UILabel!
     var apiKey = "cede4ab92c568356fd4d3d92a6248ea6"
     var selectedCity = String() // City which was chossen previous section
@@ -21,10 +21,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var ratesSum = Double() // Summary of all dams in a city
     var savedRates = Double() //
     let chartBack = UIView() // Item that behind for PieGraph (Background)
-    var selectedDam = String()
-    var barajList = [String]()
+    var selectedDam : Dam?
     var pieChatDamRate = Double()
-    var weatherStat = [String]()
+    var Dams = [Dam]()
+
+
+    
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navBar: UINavigationItem!
@@ -40,23 +42,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDamDetails"{
-            
-            let destinationVC = segue.destination as! ChartsViewController
-            
-            destinationVC.annotationTitle = selectedDam
-            
-            
-            
-        }
-    }
-    
+   
     // MARK: - TableView Delegate , Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return barajList.count
+        return Dams.count
 
     }
     
@@ -65,7 +55,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let bgView = UIView()
-        cell.textLabel?.text = barajList[indexPath.row]
+        cell.textLabel?.text = Dams[indexPath.row].dam_name
         
         
         cell.backgroundColor = UIColor(named: "Secondary")
@@ -81,23 +71,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-        selectedDam = barajList[indexPath.row]
+        
+        
+        self.selectedDam = Dams[indexPath.row]
+        
         performSegue(withIdentifier: "toDamDetails", sender: nil)
     }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDamDetails"{
+            
+            let destinationVC = segue.destination as! ChartsViewController
+            
+            destinationVC.dam = self.selectedDam
+            
+            
+            
+        }
+    }
+    
     
    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         configureBannerAd()
         createTableView()
-        selectedCity = UserDefaults.standard.object(forKey: "isCitySelected") as! String
-        cityLabel.text = selectedCity
-        navBar.title = selectedCity
+        getData()
         
-        if let temp = UserDefaults.standard.object(forKey: "savedRate") as? Double{
-            ratesSum = temp
-        }
+        
         
         
     }
@@ -107,7 +111,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getData()
+      
        
     }
     
@@ -143,156 +147,49 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func weatherRequest(){
-        let url = URL(string: "http://api.weatherapi.com/v1/forecast.json?key=f6fc556d51814cd6836161118230510&q=\(self.selectedCity)&days=7")
+    
         
-        let sessison = URLSession.shared
-        
-        if let temp = url{
-            let task = sessison.dataTask(with: temp){data,response,error in
-                
-                if error != nil {
-                    print("error1")
-                }else{
-                    if data != nil{
-                        do{
-                            let jsonResponse = try JSONSerialization.jsonObject(with: data! , options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
-                            DispatchQueue.main.async {
-                                if let forecast = jsonResponse["forecast"] as? [String:Any]{
-                                    if let forecastday = forecast["forecastday"] as? [[String:Any]]{
-                                        
-                                        for i in 0...6{
-                                            let dayOne = forecastday[i]
-                                            if let day = dayOne["day"] as? [String:Any]{
-                                                if let condition = day["condition"] as? [String:Any]{
-                                                    self.weatherStat.append(condition["text"] as! String)
-                                                }
-                                            }
-                                        }
-                                        if self.weatherStat.contains("Moderate Rain") || self.weatherStat.contains("Patchy rain possible"){
-                                            self.rainAlert.text = "Sonraki 7 gün içinde yağış bekleniyor"
-                                        }else{
-                                            self.rainAlert.text = "Sonraki 7 gün yağış beklenmiyor"
-                                        }
-                                     
-                                        print(self.weatherStat)
-
-                                        
-                                      
-                                    }
-                                }
-                            }
-                        }catch{
-                            print("error2")
-                        }
-                    }
-                }
-                
-            }
-            task.resume()
-         
-            print(url!)
-        }else{
-            print("Çökme hatası engellendi.!!")
-        }
-        
-    }
+    
     
     
     func getData(){
-        barajList.removeAll()
-        tableView.reloadData()
-       
+      
+        let firestore = Firestore.firestore()
         
-        
-        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
-        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: request) { data, response, error in
+        firestore.collection("Dams").document(self.selectedCity).collection("Baraj").addSnapshotListener{ snap, error in
             
-            if error != nil{
-                //alert
-            }else{
-                if data != nil{
-                    do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!) as! NSArray
-                        
-                        DispatchQueue.main.async {
-                            
-                            
-
-
-
-                            if let temp = jsonResponse[2] as? [String: String]{
-                                
-                                for i in temp{
-                                    if i.value == self.selectedCity{
-                                        self.barajList.append(i.key)
-                                    }
-                                }
-                                
-                                
-                                
-                                self.tableView.reloadData()
-                            }
-                            
-                            if let temp = jsonResponse[3] as? [String:Any]{
-                                for i in temp{
-                                   
-                                    for a in self.barajList{
-                                        
-                                        if i.key == a{
-                                            if let temp = i.value as? Double{
-                                                self.avgRates.append(temp)
-                                                
-                                            }
-                                            
-                                           
-                                            
-                                           
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            self.ratesSum = 0
-                            for i in self.avgRates{
-                                self.ratesSum += i
-                            }
-                            self.ratesSum = floor(self.ratesSum/Double(self.avgRates.count) * 100) / 100.00
-                            self.pieChatDamRate = self.ratesSum
-                            self.damRateLabel.text = "%" + String(describing: self.ratesSum)
-                            
-                            UserDefaults.standard.set(self.ratesSum, forKey: "savedRate")
-                            
-                            if self.ratesSum < 30{
-                                self.damRateWarningText.text = "Baraj doluluk oranı tehlikeli seviyede."
-                                self.damRateWarningColor.tintColor = .systemRed
-                            }else if self.ratesSum > 30 && self.ratesSum < 50 {
-                                
-                                self.damRateWarningText.text = "Baraj doluluk oranı normal seviyede."
-                                self.damRateWarningColor.tintColor = .systemYellow
-                            }else{
-                                self.damRateWarningText.text = "Baraj doluluk oranı iyi seviyede."
-                                
-                                self.damRateWarningColor.tintColor = .systemGreen
-
-                            }
-                            self.createPieChart()
-
-                        }
-                        
-                        
-                    }catch{
-                        
-                    }
+            guard let documents = snap?.documents else{ return }
+            
+            self.Dams = documents.compactMap{(snap) -> Dam? in
+                
+                do{
+                    let dam : Dam
+                    
+                    dam = try snap.data(as: Dam.self)
+                    
+                    return dam
                 }
+                catch{
+                    print("DATA PARSE EDİLMEDİ")
+                    return nil
+                }
+                
             }
             
-           
+            self.tableView.reloadData()
+            
+            for dam in self.Dams{
+                
+                self.pieChatDamRate = (self.pieChatDamRate + dam.rate)
+                
+            }
+            self.pieChatDamRate =  self.pieChatDamRate / Double(self.Dams.count)
+            
+            self.createPieChart()
+            self.damRateLabel.text = String(self.pieChatDamRate)
+            
         }
-        task.resume()
+    
     }
     
     func createPieChart(){
@@ -321,8 +218,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func createTableView(){
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.separatorColor = .lightGray
+        
+        
+        
+        self.cityLabel.text = self.selectedCity
+        
+        
+        
     }
   
    

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7UZ-1p-Mtx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7UZ-1p-Mtx">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -103,50 +103,43 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bu şehir için hava durumu verisi yok." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-WK-HXF">
-                                                                <rect key="frame" x="8" y="44" width="398" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bölgenizde kuraklık, su stresi ve su kıtlığı gibi olumsuz durumları " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-zk-udU">
-                                                                <rect key="frame" x="8" y="91" width="398" height="13.333333333333329"/>
+                                                                <rect key="frame" x="8" y="78.333333333333314" width="398" height="13.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="11"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="engellemek için lütfen suyu dikkatli kullanın" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krh-3L-8JW">
-                                                                <rect key="frame" x="8" y="108.33333333333331" width="398" height="14"/>
+                                                                <rect key="frame" x="8" y="95.666666666666686" width="398" height="14"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="damsWarningText" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd1-mf-ZGf">
-                                                                <rect key="frame" x="8" y="69" width="398" height="14"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                <rect key="frame" x="8" y="50" width="398" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="chp-NR-0gP">
-                                                                <rect key="frame" x="8" y="127.3333333333333" width="398" height="19.000000000000014"/>
+                                                                <rect key="frame" x="8" y="134.66666666666669" width="398" height="19"/>
                                                                 <color key="tintColor" red="1" green="0.76403061220000001" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" name="Secondary"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="168" id="0vC-70-kb6"/>
-                                                            <constraint firstItem="gd1-mf-ZGf" firstAttribute="top" secondItem="MTl-WK-HXF" secondAttribute="bottom" constant="4" id="5jg-sX-azL"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gd1-mf-ZGf" secondAttribute="trailing" constant="8" id="4xt-yz-j3w"/>
                                                             <constraint firstItem="lYU-41-mui" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="15" id="CjP-4n-jGP"/>
-                                                            <constraint firstItem="MTl-WK-HXF" firstAttribute="top" secondItem="qFF-Pn-plg" secondAttribute="top" constant="44" id="Cte-kP-rZy"/>
                                                             <constraint firstItem="gd1-mf-ZGf" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="8" id="DTJ-HJ-fdx"/>
+                                                            <constraint firstItem="gd1-mf-ZGf" firstAttribute="top" secondItem="lYU-41-mui" secondAttribute="bottom" constant="14" id="Eyl-x1-Gwi"/>
                                                             <constraint firstAttribute="trailing" secondItem="krh-3L-8JW" secondAttribute="trailing" constant="8" id="HGI-4O-eqi"/>
+                                                            <constraint firstItem="gd1-mf-ZGf" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="8" id="In5-v1-9r0"/>
                                                             <constraint firstItem="krh-3L-8JW" firstAttribute="top" secondItem="wjF-zk-udU" secondAttribute="bottom" constant="4" id="K88-6T-UEz"/>
                                                             <constraint firstItem="lYU-41-mui" firstAttribute="top" secondItem="qFF-Pn-plg" secondAttribute="top" constant="15" id="Kan-H8-ZoS"/>
-                                                            <constraint firstItem="chp-NR-0gP" firstAttribute="top" secondItem="krh-3L-8JW" secondAttribute="bottom" constant="4" id="OBd-1W-NaQ"/>
+                                                            <constraint firstItem="chp-NR-0gP" firstAttribute="top" secondItem="krh-3L-8JW" secondAttribute="bottom" constant="24" id="OBd-1W-NaQ"/>
                                                             <constraint firstItem="wjF-zk-udU" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="8" id="PP7-3d-9Mj"/>
-                                                            <constraint firstItem="MTl-WK-HXF" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="8" id="QaN-H9-qt1"/>
                                                             <constraint firstAttribute="trailing" secondItem="wjF-zk-udU" secondAttribute="trailing" constant="8" id="ST7-c3-GAR"/>
-                                                            <constraint firstAttribute="trailing" secondItem="MTl-WK-HXF" secondAttribute="trailing" constant="8" id="X9F-rG-bmg"/>
                                                             <constraint firstItem="wjF-zk-udU" firstAttribute="top" secondItem="gd1-mf-ZGf" secondAttribute="bottom" constant="8" symbolic="YES" id="Yyz-iN-9MA"/>
                                                             <constraint firstItem="chp-NR-0gP" firstAttribute="leading" secondItem="qFF-Pn-plg" secondAttribute="leading" constant="8" id="ZAt-tD-IKI"/>
                                                             <constraint firstAttribute="trailing" secondItem="chp-NR-0gP" secondAttribute="trailing" constant="8" id="eOT-d8-BZi"/>
@@ -210,7 +203,6 @@
                         <outlet property="damRateWarningText" destination="gd1-mf-ZGf" id="gJM-2c-5Vk"/>
                         <outlet property="mainView" destination="F07-bj-YBC" id="hq4-gm-PPd"/>
                         <outlet property="navBar" destination="Imn-lU-zWw" id="py5-e6-3pW"/>
-                        <outlet property="rainAlert" destination="MTl-WK-HXF" id="vkd-p4-Wvx"/>
                         <outlet property="tableView" destination="WGz-QC-Exm" id="YYV-h8-SWV"/>
                         <segue destination="bnY-Ac-reK" kind="presentation" identifier="toDamDetails" id="X9m-xb-uR2"/>
                     </connections>

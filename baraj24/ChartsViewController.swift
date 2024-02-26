@@ -8,8 +8,11 @@
 import Charts
 import UIKit
 import GoogleMobileAds
-
+import FirebaseFirestore
 class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+    
+    var dam : Dam?
+    var old_data = [OldData]()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -53,17 +56,22 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
     @IBOutlet weak var navBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+       
 
-        addBannerViewToView(bannerView)
-        chartNameLabel.text = annotationTitle
-        navBar.title = annotationTitle
+        
+        guard let dam = dam else {return}
+        
+        print(dam.dam_name)
+        chartNameLabel.text = dam.dam_name
+        navBar.title = dam.dam_name
         pieChart.delegate = self
         pickerDate.delegate = self
       
         
         getDataForLineChart()
-      
+        createLineChart()
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        addBannerViewToView(bannerView)
         bannerView.adUnitID = "ca-app-pub-4730844635676967/6479839980"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
@@ -145,115 +153,41 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
     
     
     func getDataForPieChart(){
-        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/dataBaraj24.json")
-        
-        let session = URLSession.shared
-        
-        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData)
-        
-        let task = session.dataTask(with: request){data,response,error in
-            
-                                    if error != nil{
-                                        print("error")
-                                    }
-                                    
-                                    if data != nil {
-                                        do{
-                                            let jsonResponse = try JSONSerialization.jsonObject(with: data!) as! NSArray
-                                            
-                                            DispatchQueue.main.async {
-                                                if let temp = jsonResponse[3] as? [String:Any]{
-                                                    
-                                                    for i in temp {
-                                                        self.damRatesForPieChart[i.key] = i.value as? Double
-                                                        
-                                                        
-                                                    }
-                                
-                                                }
-                                                if let temp = jsonResponse[2] as? [String:String]{
-                                                    
-                                                    for i in temp{
-                                                        self.damCities[i.key] = i.value
-                                                    }
-                                                    
-                                                    
-                                                }
-                                                
-                                                
-                                                else{
-                                                    print("hata")
-                                                }
-                                                self.addDataForPieChart()
-
-                                            }
-                                        }catch{
-                                            print("1hata")
-                                        }
-                                        
-                                        
-                                    }
-            
-        }
-        
-        task.resume()
-        
+    
     }
     
     
     func getDataForLineChart(){
-        let url = URL(string: "https://hand-to-hand-bulkhe.000webhostapp.com/oldData.json")
         
-        let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 15.0)
-
-        let session = URLSession.shared
+        let firestore = Firestore.firestore()
         
-        let task = session.dataTask(with: request) { data, response, error in
+        
+        firestore.collection("Dams").document().collection("Baraj").document(dam!.dam_name).collection("oldData").addSnapshotListener{ result,error in
             
-            if error != nil{
-                //alert
-            }else{
-                if data != nil{
-                    do{
-                        let jsonResponse = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String,Any>
-                        
-                        DispatchQueue.main.async {
-                            
-                            if let temp = jsonResponse[self.annotationTitle] as? [String : Any]{
-                                
-                                
-                                // Tarihi Sıralamak İçin
-                                let df = DateFormatter()
-                                df.dateFormat = "dd/MM/yyyy"
-                                
-                                self.tarih.append(contentsOf: temp.keys)
-                                self.tarih = self.tarih.sorted {df.date(from: $0)! < df.date(from: $1)!}
-                            
-                               
-                               
-                                for i in 0..<self.tarih.count{
-                                    if let temp2 = temp[self.tarih[i]] as? Double{
-                                       
-                                        
-                                        self.doluluk.append(temp2)
-                                      
-                                    }
-                                }
-                                
-                                self.createLineChart()
-                               
-                                
-                            }
+        
+            guard let documents = result?.documents else {return}
+            
+            self.old_data = documents.compactMap{ (result) -> OldData? in
                 
-                        }
-                    }catch{
-                        
-                    }
+                do{
+                    let data : OldData
                     
+                    data = try result.data(as: OldData.self)
+                    
+                    return data
                 }
+                
+                catch{
+                    print("hata")
+                    return nil
+                }
+                
             }
+            
+            
+            
         }
-        task.resume()
+        
     }
     
     
@@ -265,35 +199,20 @@ class ChartsViewController: UIViewController,ChartViewDelegate,UIPickerViewDeleg
         
         
         var entries = [ChartDataEntry]()
-        var counter2 = 0
-        var counter = 1
-        var lastFiveRate = [Double]()
-        if doluluk.count >= self.choosenDates{
-            lastFiveRate = Array(doluluk.suffix(self.choosenDates))// Son 5 günün doluluk oranları
+        var dates = [String]()
+        for (index,data) in old_data.enumerated(){
+            entries.append(ChartDataEntry(x: Double(index), y: Double(data.rate)))  // y eksenine baraj doluluk oranını, x eksenine düzlem üzerinde yerleşeceği konumu ekler.
+            
+            dates.append(data.date)
         }
-        
-        
-        let lastFiveDate = Array(self.tarih.suffix(self.choosenDates)) // Son 5 günün tarihleri
-    
-        for x in lastFiveRate {  // Son 5 günün doluluk oranları üzerinde döngü başlatıyor.
-            for y in stride(from: counter2, to: counter, by: 1){  // 0'dan başlayan bir sayaç başlatır. sayaç barajların doluluk oranlarını tamamen doldurduğuna biter.
-                
-                entries.append(ChartDataEntry(x: Double(y), y: Double(x)))  // y eksenine baraj doluluk oranını, x eksenine düzlem üzerinde yerleşeceği konumu ekler.
-                
-                counter += 1
-                counter2 += 1
-                if counter > lastFiveRate.count{
-                    counter = 0
-                }
-            }
-        }
-        
+      
   
         let set = LineChartDataSet (entries: entries)
         let data = LineChartData(dataSet: set)
         
         lineChart.data = data
-        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: lastFiveDate)
+        
+        lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dates)
         lineChart.xAxis.labelPosition = .bottom // Etiketler altta görünsün
         lineChart.xAxis.labelRotationAngle = -25
         lineChart.data = data

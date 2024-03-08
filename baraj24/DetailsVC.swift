@@ -232,6 +232,7 @@ class DetailsVC: UIViewController, ChartViewDelegate, UITableViewDelegate, UITab
         tableView.backgroundColor = .secondarySystemBackground
         tableView.layer.cornerRadius = 10
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(BarajlarTableViewCell.self, forCellReuseIdentifier: BarajlarTableViewCell.id)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -239,10 +240,16 @@ class DetailsVC: UIViewController, ChartViewDelegate, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = self.dams[indexPath.row].dam_name
+        let cell = tableView.dequeueReusableCell(withIdentifier: BarajlarTableViewCell.id, for: indexPath) as! BarajlarTableViewCell
+       
         cell.backgroundColor = .secondarySystemBackground
+        cell.set(dam: dams[indexPath.row])
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

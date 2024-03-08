@@ -92,10 +92,14 @@ class PickCityVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
                 
             if error != nil{
                 print(error?.localizedDescription)
+                self.makeEAAlert(alertTitle: "Error", alertLabel: "Something happend. We are working on it :)")
                 return
             }
             
-            guard let snap = snap else {return}
+            guard let snap = snap else {
+                self.makeEAAlert(alertTitle: "Error", alertLabel: "Something happend. We are working on it :)")
+                
+                return}
             
             for data in snap.documents {
                 self.cities.append(data.documentID)

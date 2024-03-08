@@ -14,4 +14,5 @@ struct Dam: Codable {
     let latitude : Double
     let longitude : Double
     let city : String
+    let image : String?
 }

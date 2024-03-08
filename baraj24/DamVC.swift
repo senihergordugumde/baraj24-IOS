@@ -59,9 +59,70 @@ class DamVC: UIViewController, ChartViewDelegate {
         
     }()
     private func configureStackView(){
+        scrollStackView.addArrangedSubview(imageMap)
         scrollStackView.addArrangedSubview(pieGraph)
         scrollStackView.addArrangedSubview(lineChartView)
+        
 
+    }
+    
+    
+    //MARK: - Image & Map
+    
+    
+    private let imageMap : UIView = {
+       
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        
+        return view
+        
+    }()
+    
+    private func configureImageMap(){
+        let imageView = EAImageView(frame: .zero)
+        imageView.getImage(url: dam?.image ?? "")
+        let textBaraj = EATitle(textAlignment: .left, fontSize: 28)
+        let textCity = EALabel(textAlignment: .left, fontSize: 24)
+        let blur = addBlur()
+
+        imageMap.addSubview(imageView)
+        imageMap.addSubview(blur)
+        imageMap.addSubview(textCity)
+        imageMap.addSubview(textBaraj)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+        
+            imageView.topAnchor.constraint(equalTo: imageMap.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: imageMap.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: imageMap.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: imageMap.bottomAnchor),
+            
+            textBaraj.leadingAnchor.constraint(equalTo: imageMap.leadingAnchor, constant: 10),
+            textBaraj.widthAnchor.constraint(equalTo: imageMap.widthAnchor),
+            textBaraj.bottomAnchor.constraint(equalTo: imageMap.bottomAnchor, constant: -50),
+            textBaraj.heightAnchor.constraint(equalToConstant: 40),
+            
+            textCity.leadingAnchor.constraint(equalTo: imageMap.leadingAnchor, constant: 10),
+            textCity.widthAnchor.constraint(equalToConstant: 200),
+            textCity.topAnchor.constraint(equalTo: textBaraj.bottomAnchor, constant: 0),
+            textCity.heightAnchor.constraint(equalToConstant: 40),
+            
+            blur.leadingAnchor.constraint(equalTo: imageMap.leadingAnchor),
+            blur.trailingAnchor.constraint(equalTo: imageMap.trailingAnchor),
+            blur.topAnchor.constraint(equalTo: textBaraj.topAnchor, constant: -10),
+            blur.bottomAnchor.constraint(equalTo: textCity.bottomAnchor, constant: 10)
+
+        ])
+        
+        textBaraj.text =  dam?.dam_name
+        textCity.text = dam?.city
     }
    
     //MARK: - Pie Graph
@@ -143,7 +204,7 @@ class DamVC: UIViewController, ChartViewDelegate {
     
     
     
-    //MARK: - FetchDate
+    //MARK: - FetchData
     private func fetchData(){
         let firestore = Firestore.firestore()
         
@@ -196,7 +257,7 @@ class DamVC: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
- 
+        configureImageMap()
         fetchData()
         self.navigationItem.title = "Grafikler"
     }

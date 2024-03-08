@@ -12,6 +12,20 @@ import Charts
 
 extension UIViewController{
     
+    func makeEAAlert(alertTitle : String, alertLabel : String){
+        DispatchQueue.main.async {
+            let alert = AlertVC(alertTitle: alertTitle, alertLabel: alertLabel)
+            
+            alert.modalPresentationStyle = .overFullScreen
+            alert.modalTransitionStyle = .crossDissolve
+            
+            
+            self.present(alert, animated: true)
+        }
+
+        
+    }
+    
     func createPieChart(dolu : ChartDataEntry, bos: ChartDataEntry,surface : UIView, pieChart : PieChartView){
         
         let set = PieChartDataSet(entries: [dolu,bos])
@@ -75,5 +89,11 @@ extension UIViewController{
     }
    
     
+    func addBlur() -> UIVisualEffectView {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemThinMaterial)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return blurEffectView
+    }
     
 }

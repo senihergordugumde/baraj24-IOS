@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1786070F806D568F5E7DD185 /* Pods_baraj24Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A090E4605FB3EDA41470A3 /* Pods_baraj24Tests.framework */; };
+		1D27AEC02B9B71C500EF701D /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D27AEBF2B9B71C500EF701D /* AlertVC.swift */; };
+		1D27AEC22B9B729700EF701D /* EAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D27AEC12B9B729700EF701D /* EAButton.swift */; };
 		1D2917E42B89C7A300C5E4FE /* PickCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */; };
 		1D2917E62B89D29900C5E4FE /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E52B89D29900C5E4FE /* DetailsVC.swift */; };
 		1D2917E92B89E47E00C5E4FE /* EALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2917E82B89E47E00C5E4FE /* EALabel.swift */; };
@@ -33,9 +35,11 @@
 		1D9D7DA22B861B96006A1DD8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */; };
 		1D9D7DA42B861B96006A1DD8 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */; };
 		1D9D7DA62B861B96006A1DD8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */; };
-		1D9D7DAA2B861E28006A1DD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */; };
+		1DAE498F2B8DC57200292033 /* BarajlarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAE498E2B8DC57200292033 /* BarajlarTableViewCell.swift */; };
 		1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */; };
 		1DE29B912B876A0600A1993E /* OldData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE29B902B876A0600A1993E /* OldData.swift */; };
+		1DED1E3F2B8F7C74007F0D16 /* EAImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED1E3E2B8F7C74007F0D16 /* EAImageView.swift */; };
+		1DFD3DF12B9BB1F300794738 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */; };
 		448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */; };
 		EE44814477097F09840EB3C4 /* Pods_baraj24_baraj24UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D27AEBF2B9B71C500EF701D /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		1D27AEC12B9B729700EF701D /* EAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAButton.swift; sourceTree = "<group>"; };
 		1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickCityVC.swift; sourceTree = "<group>"; };
 		1D2917E52B89D29900C5E4FE /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		1D2917E82B89E47E00C5E4FE /* EALabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EALabel.swift; sourceTree = "<group>"; };
@@ -82,9 +88,11 @@
 		1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D6F41F22A81121900055D87 /* cityPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityPickVC.swift; sourceTree = "<group>"; };
 		1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
-		1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1DAE498E2B8DC57200292033 /* BarajlarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarajlarTableViewCell.swift; sourceTree = "<group>"; };
 		1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
 		1DE29B902B876A0600A1993E /* OldData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldData.swift; sourceTree = "<group>"; };
+		1DED1E3E2B8F7C74007F0D16 /* EAImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAImageView.swift; sourceTree = "<group>"; };
+		1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24_baraj24UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24Tests.release.xcconfig"; path = "Target Support Files/Pods-baraj24Tests/Pods-baraj24Tests.release.xcconfig"; sourceTree = "<group>"; };
 		86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24-baraj24UITests.debug.xcconfig"; path = "Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 				1D2917E32B89C7A300C5E4FE /* PickCityVC.swift */,
 				1D2917E52B89D29900C5E4FE /* DetailsVC.swift */,
 				1D2917EF2B8A260700C5E4FE /* DamVC.swift */,
+				1D27AEBF2B9B71C500EF701D /* AlertVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -152,8 +161,11 @@
 		1D2917E72B89E46E00C5E4FE /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				1D2917F32B8DC32C00C5E4FE /* Cell */,
 				1D2917E82B89E47E00C5E4FE /* EALabel.swift */,
 				1D2917EA2B89E6D400C5E4FE /* EATitle.swift */,
+				1DED1E3E2B8F7C74007F0D16 /* EAImageView.swift */,
+				1D27AEC12B9B729700EF701D /* EAButton.swift */,
 			);
 			name = CustomUI;
 			sourceTree = "<group>";
@@ -164,6 +176,14 @@
 				1D2917ED2B89F21900C5E4FE /* UIViewController+Ext.swift */,
 			);
 			name = Ext;
+			sourceTree = "<group>";
+		};
+		1D2917F32B8DC32C00C5E4FE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1DAE498E2B8DC57200292033 /* BarajlarTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		1D4EDFB82B7CF37500451EB1 /* Model */ = {
@@ -178,7 +198,6 @@
 		1D6F41B32A81108700055D87 = {
 			isa = PBXGroup;
 			children = (
-				1D9D7DA92B861E27006A1DD8 /* GoogleService-Info.plist */,
 				1D6F41BE2A81108800055D87 /* baraj24 */,
 				1D6F41D82A81108900055D87 /* baraj24Tests */,
 				1D6F41E22A81108900055D87 /* baraj24UITests */,
@@ -201,6 +220,7 @@
 		1D6F41BE2A81108800055D87 /* baraj24 */ = {
 			isa = PBXGroup;
 			children = (
+				1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */,
 				1D2917EC2B89F20200C5E4FE /* Ext */,
 				1D2917E72B89E46E00C5E4FE /* CustomUI */,
 				1D2917E22B89C6C400C5E4FE /* Supporting */,
@@ -379,8 +399,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6F41CF2A81108900055D87 /* LaunchScreen.storyboard in Resources */,
+				1DFD3DF12B9BB1F300794738 /* GoogleService-Info.plist in Resources */,
 				1D6F41CC2A81108900055D87 /* Assets.xcassets in Resources */,
-				1D9D7DAA2B861E28006A1DD8 /* GoogleService-Info.plist in Resources */,
 				1D6F41C72A81108800055D87 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +533,7 @@
 				1D2917F02B8A260700C5E4FE /* DamVC.swift in Sources */,
 				1D2917E62B89D29900C5E4FE /* DetailsVC.swift in Sources */,
 				1D2917EE2B89F21900C5E4FE /* UIViewController+Ext.swift in Sources */,
+				1DAE498F2B8DC57200292033 /* BarajlarTableViewCell.swift in Sources */,
 				1D2917EB2B89E6D400C5E4FE /* EATitle.swift in Sources */,
 				1D6F41C42A81108800055D87 /* ViewController.swift in Sources */,
 				1D63EB4C2A9A970F00C953A2 /* testViewController.swift in Sources */,
@@ -520,11 +541,14 @@
 				1D2917E92B89E47E00C5E4FE /* EALabel.swift in Sources */,
 				1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */,
 				1DE29B912B876A0600A1993E /* OldData.swift in Sources */,
+				1DED1E3F2B8F7C74007F0D16 /* EAImageView.swift in Sources */,
 				1D6F41CA2A81108800055D87 /* baraj24.xcdatamodeld in Sources */,
 				1D4EDFBA2B7CF38500451EB1 /* Baraj.swift in Sources */,
 				1D781DF82A92A6EF00912EF4 /* ChartsViewController.swift in Sources */,
+				1D27AEC02B9B71C500EF701D /* AlertVC.swift in Sources */,
 				1D6F41C22A81108800055D87 /* SceneDelegate.swift in Sources */,
 				1D2917E42B89C7A300C5E4FE /* PickCityVC.swift in Sources */,
+				1D27AEC22B9B729700EF701D /* EAButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -166,14 +166,14 @@ class DamVC: UIViewController, ChartViewDelegate {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .secondarySystemBackground
-        view.heightAnchor.constraint(equalToConstant: 350).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 450).isActive = true
         view.layer.cornerRadius = 10
 
        return view
     }()
-    
+    let titleCizgiGrafigi = EALabel(textAlignment: .left, fontSize: 16)
+
     private func configureLineChart(){
-        let titleCizgiGrafigi = EALabel(textAlignment: .left, fontSize: 16)
         lineChartView.addSubview(titleCizgiGrafigi)
         
         
@@ -187,6 +187,11 @@ class DamVC: UIViewController, ChartViewDelegate {
         ])
         
         titleCizgiGrafigi.text = "Çizgi Grafiği"
+        setData(suffix: 5)
+        lineChart.delegate = self
+    }
+    
+    private func setData(suffix : Int){
         
         var entries = [ChartDataEntry]()
         var dates = [String]()
@@ -197,12 +202,52 @@ class DamVC: UIViewController, ChartViewDelegate {
             dates.append(data.date)
             
         }
-        createLineChart(data: entries, surface: lineChartView, lineChart: lineChart)
+        createLineChart(data: entries.suffix(suffix), surface: lineChartView, lineChart: lineChart)
         lineChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dates)
-        lineChart.delegate = self
     }
     
+    private let segmentedControl : UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["5 gün","10 gün","15 gün","30 gün"])
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        return segmentedControl
+    }()
     
+    private func configureSegmentedControl(){
+        lineChartView.addSubview(segmentedControl)
+        NSLayoutConstraint.activate([
+        
+            segmentedControl.topAnchor.constraint(equalTo: titleCizgiGrafigi.topAnchor, constant: 20),
+            segmentedControl.leadingAnchor.constraint(equalTo: titleCizgiGrafigi.leadingAnchor, constant: 20),
+            segmentedControl.widthAnchor.constraint(equalTo: lineChartView.widthAnchor, constant: -60),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 20)
+            
+            
+        
+        ])
+        segmentedControl.addTarget(self, action: #selector(segmentSelect), for: .valueChanged )
+        segmentedControl.setEnabled(true, forSegmentAt: 0)
+
+    }
+    
+    @objc func segmentSelect(){
+        print(segmentedControl.selectedSegmentIndex)
+        switch segmentedControl.selectedSegmentIndex{
+        case 0:
+            setData(suffix: 5)
+
+        case 1:
+            setData(suffix: 10)
+        case 2:
+            setData(suffix: 15)
+        case 3:
+            setData(suffix: 30)
+   
+        default:
+            setData(suffix: 30)
+        }
+       
+    
+    }
     
     //MARK: - FetchData
     private func fetchData(){
@@ -244,6 +289,7 @@ class DamVC: UIViewController, ChartViewDelegate {
             self.configureScrollView()
             self.configurePieGraph()
             self.configureLineChart()
+            self.configureSegmentedControl()
             self.adConfigure()
         }
      

@@ -17,7 +17,7 @@ open class ChartColorTemplates: NSObject
     @objc open class func liberty () -> [NSUIColor]
     {
         return [
-            NSUIColor(red: 255/255.0, green: 107/255.0, blue: 107/255.0, alpha: 1.0),
+            NSUIColor(red: 207/255.0, green: 248/255.0, blue: 246/255.0, alpha: 1.0),
             NSUIColor(red: 148/255.0, green: 212/255.0, blue: 212/255.0, alpha: 1.0),
             NSUIColor(red: 136/255.0, green: 180/255.0, blue: 187/255.0, alpha: 1.0),
             NSUIColor(red: 118/255.0, green: 174/255.0, blue: 175/255.0, alpha: 1.0),
@@ -39,8 +39,8 @@ open class ChartColorTemplates: NSObject
     @objc open class func pastel () -> [NSUIColor]
     {
         return [
-            NSUIColor(red: 2/255.0, green: 121/255.0, blue: 224/255.0, alpha: 1.0), // dolu
-            NSUIColor(red: 137/255.0, green: 55/255.0, blue: 95/255.0, alpha: 1.0), // boş
+            NSUIColor(red: 64/255.0, green: 89/255.0, blue: 128/255.0, alpha: 1.0),
+            NSUIColor(red: 149/255.0, green: 165/255.0, blue: 124/255.0, alpha: 1.0),
             NSUIColor(red: 217/255.0, green: 184/255.0, blue: 162/255.0, alpha: 1.0),
             NSUIColor(red: 191/255.0, green: 134/255.0, blue: 134/255.0, alpha: 1.0),
             NSUIColor(red: 179/255.0, green: 48/255.0, blue: 80/255.0, alpha: 1.0)

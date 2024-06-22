@@ -35,11 +35,15 @@
 		1D9D7DA22B861B96006A1DD8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */; };
 		1D9D7DA42B861B96006A1DD8 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */; };
 		1D9D7DA62B861B96006A1DD8 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */; };
+		1DACD72F2C1C7E5C00847390 /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 1DACD72E2C1C7E5C00847390 /* OneSignalExtension */; };
+		1DACD7312C1C7E5C00847390 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 1DACD7302C1C7E5C00847390 /* OneSignalFramework */; };
+		1DACD7332C1C7E5C00847390 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 1DACD7322C1C7E5C00847390 /* OneSignalInAppMessages */; };
+		1DACD7352C1C7E5C00847390 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 1DACD7342C1C7E5C00847390 /* OneSignalLocation */; };
 		1DAE498F2B8DC57200292033 /* BarajlarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAE498E2B8DC57200292033 /* BarajlarTableViewCell.swift */; };
 		1DB0998F2A8D3981007AFA30 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */; };
+		1DBE11182C1B7DFC003F4D69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DBE11172C1B7DFC003F4D69 /* GoogleService-Info.plist */; };
 		1DE29B912B876A0600A1993E /* OldData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE29B902B876A0600A1993E /* OldData.swift */; };
 		1DED1E3F2B8F7C74007F0D16 /* EAImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED1E3E2B8F7C74007F0D16 /* EAImageView.swift */; };
-		1DFD3DF12B9BB1F300794738 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */; };
 		448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA978E0ABA66FD9DDF227FBF /* Pods_baraj24.framework */; };
 		EE44814477097F09840EB3C4 /* Pods_baraj24_baraj24UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */; };
 /* End PBXBuildFile section */
@@ -88,11 +92,12 @@
 		1D6F41E52A81108900055D87 /* baraj24UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baraj24UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D6F41F22A81121900055D87 /* cityPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cityPickVC.swift; sourceTree = "<group>"; };
 		1D781DF72A92A6EF00912EF4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		1DACD72C2C1C7D2D00847390 /* baraj24.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = baraj24.entitlements; sourceTree = "<group>"; };
 		1DAE498E2B8DC57200292033 /* BarajlarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarajlarTableViewCell.swift; sourceTree = "<group>"; };
 		1DB0998E2A8D3981007AFA30 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		1DBE11172C1B7DFC003F4D69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1DE29B902B876A0600A1993E /* OldData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldData.swift; sourceTree = "<group>"; };
 		1DED1E3E2B8F7C74007F0D16 /* EAImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAImageView.swift; sourceTree = "<group>"; };
-		1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CE185D26BDB343FC34D89B1 /* Pods_baraj24_baraj24UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_baraj24_baraj24UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D7B3D3467F60D5670CB0A4 /* Pods-baraj24Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24Tests.release.xcconfig"; path = "Target Support Files/Pods-baraj24Tests/Pods-baraj24Tests.release.xcconfig"; sourceTree = "<group>"; };
 		86F87F4E9A35E257599C7483 /* Pods-baraj24-baraj24UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-baraj24-baraj24UITests.debug.xcconfig"; path = "Target Support Files/Pods-baraj24-baraj24UITests/Pods-baraj24-baraj24UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,9 +114,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DACD7312C1C7E5C00847390 /* OneSignalFramework in Frameworks */,
+				1DACD72F2C1C7E5C00847390 /* OneSignalExtension in Frameworks */,
 				1D9D7DA02B861B96006A1DD8 /* FirebaseDatabaseSwift in Frameworks */,
+				1DACD7332C1C7E5C00847390 /* OneSignalInAppMessages in Frameworks */,
 				1D9D7DA22B861B96006A1DD8 /* FirebaseFirestore in Frameworks */,
 				1D9D7D9E2B861B96006A1DD8 /* FirebaseDatabase in Frameworks */,
+				1DACD7352C1C7E5C00847390 /* OneSignalLocation in Frameworks */,
 				1D9D7DA42B861B96006A1DD8 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				448E4D4E69FF3885386DEDBF /* Pods_baraj24.framework in Frameworks */,
 				1D9D7DA62B861B96006A1DD8 /* FirebaseFirestoreSwift in Frameworks */,
@@ -220,7 +229,8 @@
 		1D6F41BE2A81108800055D87 /* baraj24 */ = {
 			isa = PBXGroup;
 			children = (
-				1DFD3DF02B9BB1F300794738 /* GoogleService-Info.plist */,
+				1DACD72C2C1C7D2D00847390 /* baraj24.entitlements */,
+				1DBE11172C1B7DFC003F4D69 /* GoogleService-Info.plist */,
 				1D2917EC2B89F20200C5E4FE /* Ext */,
 				1D2917E72B89E46E00C5E4FE /* CustomUI */,
 				1D2917E22B89C6C400C5E4FE /* Supporting */,
@@ -303,6 +313,10 @@
 				1D9D7DA12B861B96006A1DD8 /* FirebaseFirestore */,
 				1D9D7DA32B861B96006A1DD8 /* FirebaseFirestoreCombine-Community */,
 				1D9D7DA52B861B96006A1DD8 /* FirebaseFirestoreSwift */,
+				1DACD72E2C1C7E5C00847390 /* OneSignalExtension */,
+				1DACD7302C1C7E5C00847390 /* OneSignalFramework */,
+				1DACD7322C1C7E5C00847390 /* OneSignalInAppMessages */,
+				1DACD7342C1C7E5C00847390 /* OneSignalLocation */,
 			);
 			productName = baraj24;
 			productReference = 1D6F41BC2A81108800055D87 /* baraj24.app */;
@@ -381,6 +395,7 @@
 			mainGroup = 1D6F41B32A81108700055D87;
 			packageReferences = (
 				1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */,
 			);
 			productRefGroup = 1D6F41BD2A81108800055D87 /* Products */;
 			projectDirPath = "";
@@ -399,7 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D6F41CF2A81108900055D87 /* LaunchScreen.storyboard in Resources */,
-				1DFD3DF12B9BB1F300794738 /* GoogleService-Info.plist in Resources */,
+				1DBE11182C1B7DFC003F4D69 /* GoogleService-Info.plist in Resources */,
 				1D6F41CC2A81108900055D87 /* Assets.xcassets in Resources */,
 				1D6F41C72A81108800055D87 /* Main.storyboard in Resources */,
 			);
@@ -724,6 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = baraj24/baraj24.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -757,6 +773,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = baraj24/baraj24.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -914,6 +931,14 @@
 				minimumVersion = 10.21.0;
 			};
 		};
+		1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -941,6 +966,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1D9D7D9C2B861B2C006A1DD8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		1DACD72E2C1C7E5C00847390 /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalExtension;
+		};
+		1DACD7302C1C7E5C00847390 /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalFramework;
+		};
+		1DACD7322C1C7E5C00847390 /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalInAppMessages;
+		};
+		1DACD7342C1C7E5C00847390 /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DACD72D2C1C7E5C00847390 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignalLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 

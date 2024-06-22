@@ -62,7 +62,7 @@ extension UIViewController{
         lineChart.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
         
-            lineChart.topAnchor.constraint(equalTo: surface.topAnchor, constant: 30),
+            lineChart.topAnchor.constraint(equalTo: surface.topAnchor, constant: 80),
             lineChart.centerXAnchor.constraint(equalTo: surface.centerXAnchor),
             lineChart.widthAnchor.constraint(equalToConstant: 300),
             lineChart.heightAnchor.constraint(equalToConstant: 300)
